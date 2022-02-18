@@ -1,0 +1,11 @@
+docker run -d \
+    --name plex \
+    --restart unless-stopped \
+    --gpus all \
+    --network=host \
+    -e VERSION=latest \
+    -e TZ=America/Detroit \
+    -v /home/dave/docker/appdata/plex:/config \
+    -v /mnt/eopsin/Media:/data \
+    -v /home/dave/docker/appdata/plex/transcode:/transcode \
+    linuxserver/plex

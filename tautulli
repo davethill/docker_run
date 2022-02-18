@@ -1,0 +1,9 @@
+docker run -d \
+  --name=tautulli \
+  -v /root/docker/appdata/tautulli:/config \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=America/Detroit \
+  -p 8181:8181 \
+  --restart always \
+  docker.io/tautulli/tautulli

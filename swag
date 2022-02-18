@@ -1,0 +1,16 @@
+docker run -d \
+  --name=swag \
+  --cap-add=NET_ADMIN \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=America/Detroit \
+  -e URL=det1181.com \
+  -e SUBDOMAINS=radarr,sab,sonarr,tautulli,heimdall,guacamole,emby,nextcloud,files,overseerr,portainer \
+  -e VALIDATION=http \
+  -e EMAIL=det1181@gmail.com \
+  -e DNSPLUGIN=cloudflare \
+  -p 443:443 \
+  -p 80:80 \
+  -v /home/swag/docker/appdata/swag:/config \
+  --restart unless-stopped \
+  linuxserver/swag
